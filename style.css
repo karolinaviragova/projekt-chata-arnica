@@ -1,11 +1,18 @@
 /* CSS VARIABLES */
-
 :root {
   --background-primary: #f3f3f3;
   --background-secondary: #cdddda;
   --text: #1f2403;
+  --font-Arnica: "Dawning of a New Day";
+  --font-Alegreya: "Alegreya Sans";
+  --font-Lora: "Lora";
 }
 
+:root[data-theme='dark'] {
+  --background-primary: #132221;
+  --background-secondary: #476462;
+  --text: #e1e1e1;
+}
 /* ZÁKLADNÍ STYLY */
 
 *,
@@ -15,6 +22,7 @@ body,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--font-Alegreya), sans-serif;
 }
 
 html {
@@ -43,15 +51,21 @@ span {
 .page-header {
   padding: 1.5rem;
   padding-bottom: 0;
+  background-color: var(--background-secondary);
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
   font-size: 1.5rem;
+  font-family: var(--font-Arnica);
+  font-style: italic;
 }
 
 .navlink {
   text-decoration: none;
   margin-right: 0.5rem;
+  color: var(--text);
 }
 
 /* HLAVNÍ NADPIS */
@@ -59,6 +73,9 @@ span {
 .pitch {
   padding: 2.5rem 1.5rem;
   font-size: 2.5rem;
+  background-color: var(--background-secondary);
+  font-family: var(--font-Lora);
+  text-align: center;
 }
 
 /* ÚVODNÍ TEXT  */
@@ -66,10 +83,19 @@ span {
 .subheading {
   padding: 2.5rem 1.5rem;
   font-size: 1.5rem;
+  background-color: var(--background-primary);
+  text-align: center;
 }
 
 .subheading__content {
   margin: 0 auto;
+  max-width: 800px;
+
+}
+
+.chata__arnica {
+  max-width: 100%;
+  height: 70%;
 }
 
 /* CENOVÁ NABÍDKA */
@@ -79,6 +105,7 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background-secondary);
 }
 
 .pricelist__title {
@@ -96,6 +123,8 @@ span {
 
 .offer {
   margin: 1rem 0 2rem 0;
+  width: 80%;
+  max-width: 270px;
 }
 
 .offer__header {
@@ -128,6 +157,7 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-primary);
 }
 
 .review__title {
@@ -139,11 +169,13 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--background-secondary);
 }
 
 .review__text {
   padding: 2rem;
   font-size: 1.3rem;
+  font-style: oblique;
 }
 
 .review__author {
@@ -156,6 +188,7 @@ span {
 .footer {
   padding: 2.5rem 1.5rem;
   font-size: 1.2rem;
+  background-color: var(--background-secondary);
 
   display: flex;
   gap: 2rem;
@@ -220,5 +253,53 @@ span {
     padding: 1.5rem;
   }
 
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact {
+    padding-right: 3rem;
+  }
+
+  .review__content {
+    border: none;
+  }
+
+  .review__text {
+    background-color: var(--background-secondary);
+    width: 250px;
+    position: relative;
+    left: 60px;
+  }
+
+  .review__photo {
+    background-image: url("/images/reviewer.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 400px;
+  }
+
+ .pricelist__content {
+  display: flex;
+  flex-direction: row;
+ }
+
+ .offer {
+  margin-right: 3rem;
+  width: 220px;
+ }
   /* TADY PIŠTE STYLY PRO ŠÍŘKU NAD 800PX */
+}
+
+@media (min-width: 1200px) {
+   
+  .offer {
+  margin-right: 6rem;
+ }
+
+ .contact {
+  padding-right: 6rem;
+ }
 }
